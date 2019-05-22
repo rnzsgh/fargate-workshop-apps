@@ -1,0 +1,15 @@
+{
+  "name": "fargate-intro-api",
+  "version": "0.0.1",
+  "description": "Fargate Intro API",
+  "repository": "https://github.com/rnzsgh/fargate-workshop-apps",
+  "license": "Apache-2.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.0",
+    "winston": "^3.2.1"
+  }
+}
