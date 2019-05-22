@@ -1,0 +1,51 @@
+---
+version: 3
+services:
+  web:
+    image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_WEB:latest
+    ports:
+      - 8443:8443
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: $LOG_GROUP
+        awslogs-region: $REGION
+        awslogs-stream-prefix: web
+  api:
+    image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_API:latest
+    ports:
+      - 8090:8090
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: $LOG_GROUP
+        awslogs-region: $REGION
+        awslogs-stream-prefix: api
+    depends_on:
+      - web
+      - back
+  back:
+    image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_BACK:latest
+    ports:
+      - 7080:7080
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: $LOG_GROUP
+        awslogs-region: $REGION
+        awslogs-stream-prefix: back
+    depends_on:
+      - schema
+  schema:
+    image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_SCHEMA:latest
+    ports:
+      - 7080:7080
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: $LOG_GROUP
+        awslogs-region: $REGION
+        awslogs-stream-prefix: back
+
+
+
