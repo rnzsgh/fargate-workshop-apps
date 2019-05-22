@@ -9,7 +9,6 @@ RUN apt-get update && \
         -subj "/C=US/ST=NY/L=NYC/O=Good/OU=IT Department/CN=selfsigned.com" && \
     openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
-
 FROM nginx:1.15-alpine
 
 COPY --from=builder /server.* /etc/nginx/
