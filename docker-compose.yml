@@ -36,4 +36,5 @@ services:
         awslogs-stream-prefix: back
     environment:
       DB_ENGINE: ${DB_ENGINE}
+      DB_NAME: ${DB_NAME}
       DB_ENDPOINT: ${DB_ENDPOINT}
