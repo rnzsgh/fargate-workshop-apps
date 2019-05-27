@@ -2,7 +2,7 @@
 version: '3'
 services:
   web:
-    image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_WEB}:latest
+    image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_WEB}:${TAG}
     ports:
       - 8443:8443
     logging:
@@ -12,7 +12,7 @@ services:
         awslogs-region: ${REGION}
         awslogs-stream-prefix: web
   api:
-    image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_API}:latest
+    image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_API}:${TAG}
     ports:
       - 8090:8090
     logging:
@@ -25,7 +25,7 @@ services:
       CACHE_ENGINE: ${CACHE_ENGINE}
       CACHE_ENDPOINT: ${CACHE_ENDPOINT}
   back:
-    image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_BACK}:latest
+    image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_BACK}:${TAG}
     ports:
       - 7080:7080
     logging:
