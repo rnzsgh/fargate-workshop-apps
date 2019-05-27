@@ -21,6 +21,9 @@ services:
         awslogs-group: ${LOG_GROUP}
         awslogs-region: ${REGION}
         awslogs-stream-prefix: api
+    environment:
+      CACHE_ENGINE: ${CACHE_ENGINE}
+      CACHE_ENDPOINT: ${CACHE_ENDPOINT}
   back:
     image: ${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPO_BACK}:latest
     ports:
@@ -31,3 +34,6 @@ services:
         awslogs-group: ${LOG_GROUP}
         awslogs-region: ${REGION}
         awslogs-stream-prefix: back
+    environment:
+      DB_ENGINE: ${DB_ENGINE}
+      DB_ENDPOINT: ${DB_ENDPOINT}
