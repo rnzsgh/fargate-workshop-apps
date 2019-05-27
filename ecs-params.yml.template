@@ -15,8 +15,8 @@ task_definition:
     back:
       essential: true
       secrets:
-        - value_from: $DB_SECRET_ARN
-          name: DB_PASSWORD
+        - value_from: $DB_ADMIN_ARN
+          name: DB_ADMIN
 run_params:
   network_configuration:
     awsvpc_configuration:
