@@ -34,18 +34,3 @@ services:
         awslogs-group: $LOG_GROUP
         awslogs-region: $REGION
         awslogs-stream-prefix: back
-    depends_on:
-      - schema
-  schema:
-    image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_SCHEMA:latest
-    ports:
-      - 7080:7080
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: $LOG_GROUP
-        awslogs-region: $REGION
-        awslogs-stream-prefix: back
-
-
-

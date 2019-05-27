@@ -17,11 +17,6 @@ task_definition:
       secrets:
         - value_from: $DB_SECRET_ARN
           name: DB_PASSWORD
-    schema:
-      essential: false
-      secrets:
-        - value_from: $DB_SECRET_ARN
-          name: DB_SECRETS
 run_params:
   network_configuration:
     awsvpc_configuration:
