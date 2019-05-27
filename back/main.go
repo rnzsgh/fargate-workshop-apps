@@ -16,14 +16,14 @@ import (
 )
 
 var mysqlSchema = `
-CREATE TABLE text_data(
+CREATE TABLE IF NOT EXISTS text_data(
 	id int NOT NULL AUTO_INCREMENT,
 	value text,
 	PRIMARY KEY (id)
-);`
+) ENGINE=INNODB;`
 
 var postgresSchema = `
-CREATE TABLE text_data(
+CREATE TABLE IF NOT EXISTS text_data(
 	id SERIAL PRIMARY KEY,
 	value text
 );`
