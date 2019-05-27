@@ -2,6 +2,7 @@
 version: '3'
 services:
   web:
+    container_name: web
     image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_WEB:latest
     ports:
       - 8443:8443
@@ -12,6 +13,7 @@ services:
         awslogs-region: $REGION
         awslogs-stream-prefix: web
   api:
+    container_name: api
     image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_API:latest
     ports:
       - 8090:8090
@@ -25,6 +27,7 @@ services:
       - web
       - back
   back:
+    container_name: back
     image: $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_BACK:latest
     ports:
       - 7080:7080
