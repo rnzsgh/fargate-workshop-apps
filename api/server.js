@@ -17,7 +17,7 @@ const log = createLogger({
 })
 
 app.get('/', (req, res) =>
-  res.send('Hello World - 42!')
+  res.send('Hello World!')
 )
 
 app.listen(port, () => log.info(`API listening on port: ${port}`))
